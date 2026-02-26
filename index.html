@@ -1,2 +1,120 @@
-<h1>Site em construção</h1>
-<p>Em breve disponível.</p>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Loja de Roupa</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fff; color: #333; }
+    header { background: #222; color: #fff; padding: 20px; text-align: center; }
+    h1 { margin: 0; }
+    section { padding: 20px; max-width: 800px; margin: auto; }
+    .produto { border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; }
+    .produto img { max-width: 100%; height: auto; }
+    label { display: block; margin-top: 10px; }
+    select, button { padding: 8px; margin-top: 5px; width: 100%; max-width: 200px; }
+    button { background: #222; color: #fff; border: none; cursor: pointer; }
+    footer { text-align: center; padding: 20px; background: #f0f0f0; margin-top: 40px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Minha Loja de Roupa</h1>
+  <p>Produtos minimalistas e exclusivos</p>
+</header>
+
+<section>
+  <h2>Produtos</h2>
+
+  <!-- Produto 1 -->
+  <div class="produto">
+    <img src="camisola1.jpg" alt="Camisola X">
+    <h3>Camisola X</h3>
+    <p>Preço: 25€</p>
+    <label for="tamanho1">Tamanho:</label>
+    <select id="tamanho1">
+      <option>S</option>
+      <option>M</option>
+      <option>L</option>
+      <option>XL</option>
+    </select>
+    <label for="cor1">Cor:</label>
+    <select id="cor1">
+      <option>Preto</option>
+      <option>Branco</option>
+      <option>Verde</option>
+    </select>
+    <button onclick="comprar('Camisola X', 1)">Comprar via MB Way</button>
+  </div>
+
+  <!-- Produto 2 -->
+  <div class="produto">
+    <img src="camisola2.jpg" alt="Camisola Y">
+    <h3>Camisola Y</h3>
+    <p>Preço: 30€</p>
+    <label for="tamanho2">Tamanho:</label>
+    <select id="tamanho2">
+      <option>S</option>
+      <option>M</option>
+      <option>L</option>
+      <option>XL</option>
+    </select>
+    <label for="cor2">Cor:</label>
+    <select id="cor2">
+      <option>Azul</option>
+      <option>Branco</option>
+      <option>Cinza</option>
+    </select>
+    <button onclick="comprar('Camisola Y', 2)">Comprar via MB Way</button>
+  </div>
+
+  <!-- Produto 3 -->
+  <div class="produto">
+    <img src="camisola3.jpg" alt="Camisola Z">
+    <h3>Camisola Z</h3>
+    <p>Preço: 28€</p>
+    <label for="tamanho3">Tamanho:</label>
+    <select id="tamanho3">
+      <option>S</option>
+      <option>M</option>
+      <option>L</option>
+      <option>XL</option>
+    </select>
+    <label for="cor3">Cor:</label>
+    <select id="cor3">
+      <option>Vermelho</option>
+      <option>Preto</option>
+      <option>Branco</option>
+    </select>
+    <button onclick="comprar('Camisola Z', 3)">Comprar via MB Way</button>
+  </div>
+
+</section>
+
+<section>
+  <h2>Sobre a Marca</h2>
+  <p>Somos uma marca de roupa minimalista e sustentável. Cada peça é feita com cuidado e atenção aos detalhes.</p>
+</section>
+
+<section>
+  <h2>Contactos</h2>
+  <p>Para encomendas ou dúvidas, envia uma mensagem pelo WhatsApp:</p>
+  <p><a href="https://wa.me/3519XXXXXXXX">Clique aqui para enviar WhatsApp</a></p>
+</section>
+
+<footer>
+  &copy; 2026 Minha Loja de Roupa
+</footer>
+
+<script>
+function comprar(nomeProduto, id) {
+  const tamanho = document.getElementById('tamanho' + id).value;
+  const cor = document.getElementById('cor' + id).value;
+  const mensagem = `Olá, quero comprar ${nomeProduto} - Tamanho ${tamanho} - Cor ${cor}`;
+  window.open('https://wa.me/3519XXXXXXXX?text=' + encodeURIComponent(mensagem));
+}
+</script>
+
+</body>
+</html>
