@@ -93,9 +93,11 @@
     <img src="vida_sweatshirt.jpg" alt="Peças únicas" width="180">
     <img src="café.jpg" alt="Peças únicas" width="180">
     <h3>Peças únicas</h3>
-    <p>Artigos disponíveis:</p>
-    <ul>
-      <option>10€ T-shirt S Branco - fim de história</option>
+    
+    <label for="peca">Escolhe o artigo:</label>
+    <select id="peca">
+      <option value="">--Selecionar--</option>
+      <option value=10€ T-shirt S Branco - fim de história></option>
       <option>10€ T-shirt L Branco - li.ber.da.de (com descrição)</option>
       <option>10€ T-shirt L Branco - vi.da (com descrição)</option>
       <option>10€ T-shirt XL Branco - sau.da.de (com descrição)</option>
@@ -120,10 +122,23 @@
       <option>8€ Tote bag cru - diz que disse</option>
       <option>8€ Tote bag cru - ca.fé (com descrição)</option>
       <option>8€ Tote bag cru - "Eu avisei" (com descrição)</option>
-    </ul>
+    </select>
 
-    <p><strong>Stock limitado - 1unidade por artigo</strong></p>
+    <button onclick="comprar()">Comprar via MBWay</button>
   </div>
+
+  <script>
+    function comprar() {
+      var artigo =
+        document.getElementById("peca").value;
+
+      if (artigo ==="") {
+        alert("Por favor escolhe um artigo.");
+      } else {
+        alert("Envia MBWay com referência:" + artigo);
+      }
+    }
+  </script>
     
   
 
