@@ -93,8 +93,8 @@
     <img src="vida_sweatshirt.jpg" alt="Peças únicas" width="180">
     <img src="café.jpg" alt="Peças únicas" width="180">
     <h3>Peças únicas</h3>
-    <label for="tamanho4">Tamanho:</label>
-    <select id="tamanho4">
+    <label for="artigo">Artigo:</label>
+    <select id="artigo">
       <option>10€ T-shirt S Branco - fim de história</option>
       <option>10€ T-shirt L Branco - li.ber.da.de (com descrição)</option>
       <option>10€ T-shirt L Branco - vi.da (com descrição)</option>
@@ -147,6 +147,15 @@ function comprar(nomeProduto, id) {
   const tamanho = document.getElementById('tamanho' + id).value;
   const cor = document.getElementById('cor' + id).value;
   const mensagem = `Olá, quero comprar ${nomeProduto} - Tamanho ${tamanho} - Cor ${cor}`;
+  window.open('https://wa.me/966606910?text=' + encodeURIComponent(mensagem));
+}
+</script>
+
+
+  <script>
+function comprar(nomeProduto, id) {
+  const artigo = document.getElementById('artigo' + id).value;
+  const mensagem = `Olá, quero comprar ${nomeProduto} - Tamanho ${tamanho}`;
   window.open('https://wa.me/966606910?text=' + encodeURIComponent(mensagem));
 }
 </script>
