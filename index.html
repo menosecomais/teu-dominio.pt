@@ -124,18 +124,22 @@
       <option>8€ Tote bag cru - "Eu avisei" (com descrição)</option>
    </select>
 
-     <button onclick="comprar()">Comprar via MBWay</button>
-</div>
+     <button onclick="comprarPeca()">Comprar via MBWay</button>
 
 <script>
-function comprar() {
+function comprarPeca() {
   var artigo = document.getElementById("peca").value;
 
   if (artigo === "") {
-    alert("Por favor escolhe um artigo.");
-  } else {
-    alert("Envia MBWay com referência: " + artigo);
+    alert("Escolhe um artigo primeiro.");
+    return;
   }
+
+  var numero = "351966606910"; // teu número com 351
+  var mensagem = "Olá, quero comprar: " + artigo;
+
+  var url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+  window.open(url, "_blank");
 }
 </script>
     
