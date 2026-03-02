@@ -8,20 +8,55 @@
    
 .carousel {
   position: relative;
-  width: 100%;
-  max-width: 300px;   /* controla tamanho máximo */
-  margin: 0 auto;
-  overflow: hidden;
+  max-width: 300px;
+  margin: auto;
 }
 
-.carousel img {
+.slides img {
   width: 100%;
   display: none;
   border-radius: 10px;
 }
 
-.carousel img.active {
+.slides img.active {
   display: block;
+}
+
+/* setas */
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 22px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.prev { left: 5px; }
+.next { right: 5px; }
+
+/* bolinhas */
+.dots {
+  text-align: center;
+  margin-top: 6px;
+}
+
+.dots span {
+  height: 8px;
+  width: 8px;
+  margin: 0 3px;
+  background: #ccc;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dots span.active {
+  background: #333;
 }
 
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fff; color: #333; }
@@ -107,13 +142,21 @@
   </div>
 
   <!-- Produto 4 -->
-  <div class="produto">
+ <div class="produto">
   <h3>Peças únicas</h3>
 
   <div class="carousel" id="carousel4">
+    <button class="prev">‹</button>
+
+    <div class="slides">
     <img src="preguiça_t-shirt.jpg" alt="Peças únicas" width="320">
     <img src="vida_sweatshirt.jpg" alt="Peças únicas" width="320">
     <img src="café.jpg" alt="Peças únicas" width="320">
+  </div>
+
+    <button class="next">›</button>
+
+    <div class="dots"></div>
   </div>
 </div>
     <label for="peca">Escolhe o artigo:</label>
@@ -198,19 +241,62 @@ function comprar(nomeProduto, id) {
 <script>
 function iniciarCarousel(id) {
   const carousel = document.getElementById(id);
-  const imgs = carousel.querySelectorAll("img");
+  const imgs = carousel.querySelectorAll(".slides img");
+  const dotsContainer = carousel.querySelector(".dots");
+  const prev = carousel.querySelector(".prev");
+  const next = carousel.querySelector(".next");
+
   let index = 0;
+  let intervalo;
 
-  imgs[index].classList.add("active");
+  // criar bolinhas
+  imgs.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.onclick = () => mostrar(i);
+    dotsContainer.appendChild(dot);
+  });
 
-  setInterval(() => {
+  const dots = dotsContainer.querySelectorAll("span");
+
+  function mostrar(i) {
     imgs[index].classList.remove("active");
-    index = (index + 1) % imgs.length;
+    dots[index].classList.remove("active");
+
+    index = i;
+
     imgs[index].classList.add("active");
-  }, 2500); // muda a cada 2.5s
+    dots[index].classList.add("active");
+  }
+
+  function proximo() {
+    mostrar((index + 1) % imgs.length);
+  }
+
+  function anterior() {
+    mostrar((index - 1 + imgs.length) % imgs.length);
+  }
+
+  prev.onclick = anterior;
+  next.onclick = proximo;
+
+  // auto play
+  function iniciarAuto() {
+    intervalo = setInterval(proximo, 3000);
+  }
+
+  function pararAuto() {
+    clearInterval(intervalo);
+  }
+
+  carousel.addEventListener("mouseenter", pararAuto);
+  carousel.addEventListener("mouseleave", iniciarAuto);
+  carousel.addEventListener("touchstart", pararAuto);
+
+  // iniciar
+  mostrar(0);
+  iniciarAuto();
 }
 
-// inicia todos os carousels
 iniciarCarousel("carousel4");
 </script>
 </body>
