@@ -195,6 +195,23 @@ function comprar(nomeProduto, id) {
 </script>
 
 
+<script>
+function iniciarCarousel(id) {
+  const carousel = document.getElementById(id);
+  const imgs = carousel.querySelectorAll("img");
+  let index = 0;
 
+  imgs[index].classList.add("active");
+
+  setInterval(() => {
+    imgs[index].classList.remove("active");
+    index = (index + 1) % imgs.length;
+    imgs[index].classList.add("active");
+  }, 2500); // muda a cada 2.5s
+}
+
+// inicia todos os carousels
+iniciarCarousel("carousel4");
+</script>
 </body>
 </html>
