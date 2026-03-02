@@ -64,7 +64,12 @@
     header { background: #fff; color: #333; padding: 20px; text-align: center; }
     h1 { margin: 0; }
     section { padding: 20px; max-width: 800px; margin: auto; }
-    .produto { border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; }
+    .produto {
+  border: none;          /* remove contorno */
+  box-shadow: none;      /* remove sombra */
+  background: transparent; /* fundo limpo */
+  padding: 20px 0;       /* mantém espaçamento vertical */
+}
     .produto img { max-width: 100%; height: auto; }
     label { display: block; margin-top: 10px; }
     select, button { padding: 8px; margin-top: 5px; width: 100%; max-width: 200px; }
