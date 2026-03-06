@@ -89,8 +89,23 @@
 
   <!-- Produto 1 -->
   <div class="produto">
-    <img src="camisola1.jpg" alt="T-shirts">
     <h3>T-shirts</h3>
+   
+     <div class="carousel" id="carousel1">
+    <button class="prev">‹</button>
+
+    <div class="slides">
+    <img src="preguiça_t-shirt.jpg" alt="Peças únicas" width="350">
+    <img src="vida_sweatshirt.jpg" alt="Peças únicas" width="350">
+    <img src="café.jpg" alt="Peças únicas" width="350">
+  </div>
+
+    <button class="next">›</button>
+
+    <div class="dots"></div>
+  </div>
+</div>
+    
     <p>Preço: 12€</p>
     <label for="tamanho1">Tamanho:</label>
     <select id="tamanho1">
@@ -110,8 +125,23 @@
 
   <!-- Produto 2 -->
   <div class="produto">
-    <img src="camisola2.jpg" alt="T-shirts criança">
     <h3>T-shirts criança</h3>
+    
+    <div class="carousel" id="carousel2">
+    <button class="prev">‹</button>
+
+    <div class="slides">
+    <img src="preguiça_t-shirt.jpg" alt="Peças únicas" width="350">
+    <img src="vida_sweatshirt.jpg" alt="Peças únicas" width="350">
+    <img src="café.jpg" alt="Peças únicas" width="350">
+  </div>
+
+    <button class="next">›</button>
+
+    <div class="dots"></div>
+  </div>
+</div>
+    
     <p>Preço: 10€</p>
     <label for="tamanho2">Tamanho:</label>
     <select id="tamanho2">
@@ -316,6 +346,8 @@ function iniciarCarousel(id) {
   iniciarAuto();
 }
 
+iniciarCarousel("carousel1");
+iniciarCarousel("carousel2");
 iniciarCarousel("carousel3");
 iniciarCarousel("carousel4");
 </script>
